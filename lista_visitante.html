@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Visitantes</title>
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>Lista de Visitantes</h1>
+
+    <!-- O local onde os dados dos visitantes serão exibidos -->
+    <div id="lista-visitantes"></div>
+
+    <a href="home.html" class="button">Voltar</a>
+
+    <!-- Inclua o script JavaScript aqui -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Recupere os dados do localStorage
+            const visitanteJSON = localStorage.getItem('visitante');
+            const visitante = JSON.parse(visitanteJSON);
+
+            // Exiba os dados dos visitantes na div "lista-visitantes" na página "Lista de Visitantes"
+            if (visitante) {
+                const listaVisitantesDiv = document.getElementById('lista-visitantes');
+                listaVisitantesDiv.innerHTML = `
+                    <p>Nome: ${visitante.nome}</p>
+                    <p>Documento: ${visitante.documento}</p>
+                    <p>Sala: ${visitante.sala}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
